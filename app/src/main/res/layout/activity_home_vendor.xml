@@ -58,9 +58,9 @@
             android:layout_height="50dp"
             android:layout_gravity="bottom|center"
             android:layout_marginBottom="35dp"
-            android:src="@drawable/home_menu"
-            app:backgroundTint="@color/mint_greean"
-            app:tint="@android:color/white"
+            android:src="@drawable/ic_payments"
+            app:backgroundTint="@color/white"
+            app:tint="@android:color/black"
             app:elevation="12dp"/>
 
         <com.google.android.material.bottomappbar.BottomAppBar
