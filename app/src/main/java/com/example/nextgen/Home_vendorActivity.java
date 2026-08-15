@@ -39,7 +39,7 @@ public class Home_vendorActivity extends AppCompatActivity {
                     .replace(R.id.fragment_container, new DashboardFragment())
                     .commit();
 
-            bottomNavigation.setSelectedItemId(R.id.empty);
+            bottomNavigation.setSelectedItemId(R.id.home);
         }
 
         bottomNavigation.setOnItemSelectedListener(item -> {
