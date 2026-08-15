@@ -87,7 +87,6 @@ public class Home_vendorActivity extends AppCompatActivity {
 
         return true;
     }
-
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
