@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item
+        android:id="@+id/homemenu"
+        app:showAsAction="always"
+        android:title="Home"
+        android:iconTint="@color/black"
+        android:icon="@drawable/home_menu"/>
+
+    <item
+        android:id="@+id/menuBMI"
+        app:showAsAction="always"
+        android:title="BMI"
+        android:iconTint="@color/black"
+        android:icon="@drawable/bmi_calculater"/>
+
+    <item
+        android:id="@+id/menuMusic"
+        app:showAsAction="always"
+        android:iconTint="@color/black"
+        android:title="Music"
+        android:icon="@drawable/fitness_music"/>
+
+    <item
+        android:id="@+id/menuYoga"
+        android:title="Yoga"
+        app:showAsAction="always"
+        android:iconTint="@color/black"
+        android:icon="@drawable/yoga"/>
+    <item
+        android:id="@+id/menuCourse"
+        android:title="Course"
+        app:showAsAction="always"
+        android:iconTint="@color/black"
+        android:icon="@drawable/work_out"/>
+
+</menu>
