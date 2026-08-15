@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
+import com.example.nextgen.CustomerFragments.HomeFragment;
 import com.example.nextgen.VendorFragments.CustomersFragment;
 import com.example.nextgen.VendorFragments.DashboardFragment;
 import com.example.nextgen.VendorFragments.DeliveriesVendorFragment;
@@ -51,7 +52,12 @@ public class Home_vendorActivity extends AppCompatActivity {
 
             int itemId = item.getItemId();
 
-            if (itemId == R.id.Customers) {
+
+            if (itemId == R.id.home) {
+                fragment = new DashboardFragment();
+
+            }
+            else if (itemId == R.id.Customers) {
                 fragment = new CustomersFragment();
 
             } else if (itemId == R.id.deliveries) {

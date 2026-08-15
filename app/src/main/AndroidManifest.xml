@@ -12,9 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NextGen">
         <activity
-            android:name=".RegistrationActivity"
-            android:exported="false" />
-        <activity
             android:name=".home_customerActivity"
             android:exported="false" />
         <activity
