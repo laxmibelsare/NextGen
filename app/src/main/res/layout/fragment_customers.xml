@@ -1,14 +1,1022 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".VendorFragments.CustomersFragment">
+    android:background="#F8F9F5"
+    android:fillViewport="true">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="30dp">
 
-</FrameLayout>
+        <!-- ================= HEADER ================= -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#087F5B"
+            android:orientation="vertical"
+            android:paddingStart="20dp"
+            android:paddingTop="22dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="28dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <!-- Header Title -->
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Customers"
+                        android:textColor="#FFFFFF"
+                        android:textSize="26sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:text="Manage your customers"
+                        android:textColor="#D8F3EA"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <!-- Search -->
+
+                <TextView
+                    android:id="@+id/btnCustomerSearch"
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    android:gravity="center"
+                    android:text="⌕"
+                    android:textColor="#FFFFFF"
+                    android:textSize="30sp" />
+
+                <!-- Filter -->
+
+                <TextView
+                    android:id="@+id/btnCustomerFilter"
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    android:gravity="center"
+                    android:text="⚱"
+                    android:textColor="#FFFFFF"
+                    android:textSize="22sp" />
+
+                <!-- Menu -->
+
+                <TextView
+                    android:id="@+id/btnCustomerMenu"
+                    android:layout_width="35dp"
+                    android:layout_height="42dp"
+                    android:gravity="center"
+                    android:text="⋮"
+                    android:textColor="#FFFFFF"
+                    android:textSize="28sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Part 2 will continue here -->
+        <!-- ================= SEARCH BAR ================= -->
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="-20dp"
+            android:layout_marginEnd="16dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="15dp"
+                android:paddingEnd="10dp">
+
+                <!-- Search Icon -->
+
+                <TextView
+                    android:layout_width="35dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="⌕"
+                    android:textColor="#263238"
+                    android:textSize="28sp" />
+
+                <!-- Search Input -->
+
+                <EditText
+                    android:id="@+id/etSearchCustomer"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:hint="Search customers by name or phone..."
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:paddingStart="5dp"
+                    android:textColor="#263238"
+                    android:textColorHint="#78909C"
+                    android:textSize="14sp" />
+
+                <!-- Filter Button -->
+
+                <TextView
+                    android:id="@+id/btnSearchFilter"
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    android:gravity="center"
+                    android:text="☷"
+                    android:textColor="#263238"
+                    android:textSize="23sp" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+        <!-- Space -->
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp" />
+
+
+        <!-- Part 3 will continue here -->
+
+        <!-- ================= CUSTOMER STATISTICS ================= -->
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
+
+
+                <!-- ========== TOTAL CUSTOMERS ========== -->
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="150dp"
+                    android:layout_height="125dp"
+                    app:cardBackgroundColor="#EAF8F3"
+                    app:cardCornerRadius="18dp"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_width="42dp"
+                            android:layout_height="42dp"
+                            android:background="#D0F1E5"
+                            android:gravity="center"
+                            android:text="👥"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/tvTotalCustomers"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:text="128"
+                            android:textColor="#087F5B"
+                            android:textSize="22sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Total Customers"
+                            android:textColor="#263238"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+                <!-- ========== ACTIVE CUSTOMERS ========== -->
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="150dp"
+                    android:layout_height="125dp"
+                    android:layout_marginStart="10dp"
+                    app:cardBackgroundColor="#EEF6FF"
+                    app:cardCornerRadius="18dp"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_width="42dp"
+                            android:layout_height="42dp"
+                            android:background="#DCEBFF"
+                            android:gravity="center"
+                            android:text="✓"
+                            android:textColor="#2563EB"
+                            android:textSize="22sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvActiveCustomers"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:text="102"
+                            android:textColor="#2563EB"
+                            android:textSize="22sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Active Customers"
+                            android:textColor="#263238"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+                <!-- ========== INACTIVE CUSTOMERS ========== -->
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="150dp"
+                    android:layout_height="125dp"
+                    android:layout_marginStart="10dp"
+                    app:cardBackgroundColor="#FFF7E8"
+                    app:cardCornerRadius="18dp"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_width="42dp"
+                            android:layout_height="42dp"
+                            android:background="#FFF0C9"
+                            android:gravity="center"
+                            android:text="◷"
+                            android:textColor="#F4B942"
+                            android:textSize="22sp" />
+
+                        <TextView
+                            android:id="@+id/tvInactiveCustomers"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:text="18"
+                            android:textColor="#D99800"
+                            android:textSize="22sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Inactive Customers"
+                            android:textColor="#263238"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+                <!-- ========== NEW CUSTOMERS ========== -->
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="150dp"
+                    android:layout_height="125dp"
+                    android:layout_marginStart="10dp"
+                    app:cardBackgroundColor="#F5F0FF"
+                    app:cardCornerRadius="18dp"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_width="42dp"
+                            android:layout_height="42dp"
+                            android:background="#E8DEFF"
+                            android:gravity="center"
+                            android:text="＋"
+                            android:textColor="#7C3AED"
+                            android:textSize="22sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvNewCustomers"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:text="12"
+                            android:textColor="#7C3AED"
+                            android:textSize="22sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="New This Month"
+                            android:textColor="#263238"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
+
+        <!-- Part 4 will continue here -->
+
+        <!-- ================= ALL CUSTOMERS HEADER ================= -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="22dp"
+            android:layout_marginEnd="20dp"
+            android:gravity="center_vertical">
+
+            <!-- Title -->
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="All Customers"
+                android:textColor="#12372A"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <!-- Customer Count -->
+
+            <TextView
+                android:id="@+id/tvCustomerCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="(128)"
+                android:textColor="#087F5B"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <!-- Sort -->
+
+            <TextView
+                android:id="@+id/tvSortCustomers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:text="Sort: Recent ▾"
+                android:textColor="#087F5B"
+                android:textSize="13sp" />
+
+        </LinearLayout>
+
+
+        <!-- Small spacing -->
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="4dp" />
+
+
+        <!-- Part 5 will continue here -->
+        <!-- ================= CUSTOMER LIST ================= -->
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="16dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <!-- ================= CUSTOMER 1 ================= -->
+
+                <LinearLayout
+                    android:id="@+id/customerRow1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:minHeight="115dp"
+                    android:orientation="horizontal"
+                    android:padding="14dp">
+
+                    <!-- PROFILE -->
+
+                    <TextView
+                        android:layout_width="58dp"
+                        android:layout_height="58dp"
+                        android:background="#DDF4EC"
+                        android:gravity="center"
+                        android:text="RS"
+                        android:textColor="#087F5B"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <!-- CUSTOMER INFORMATION -->
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvCustomerName1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Rahul Sharma"
+                            android:textColor="#12372A"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvCustomerPhone1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="☎ 9876543210"
+                            android:textColor="#455A64"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/tvCustomerService1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="🥛 Milk Subscription • 1 Litre • Daily"
+                            android:textColor="#607D78"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/tvCustomerAddress1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="📍 Shivaji Nagar, Pune"
+                            android:textColor="#607D78"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+
+                    <!-- STATUS + DETAILS -->
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvCustomerStatus1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="#E4F6EE"
+                            android:paddingStart="10dp"
+                            android:paddingTop="6dp"
+                            android:paddingEnd="10dp"
+                            android:paddingBottom="6dp"
+                            android:text="● Active"
+                            android:textColor="#087F5B"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/btnCustomerDetails1"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:text="›"
+                            android:textColor="#263238"
+                            android:textSize="27sp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <!-- DIVIDER -->
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#E8EFEC" />
+
+
+                <!-- ================= CUSTOMER 2 ================= -->
+
+                <LinearLayout
+                    android:id="@+id/customerRow2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:minHeight="115dp"
+                    android:orientation="horizontal"
+                    android:padding="14dp">
+
+                    <!-- PROFILE -->
+
+                    <TextView
+                        android:layout_width="58dp"
+                        android:layout_height="58dp"
+                        android:background="#DDEBFF"
+                        android:gravity="center"
+                        android:text="SP"
+                        android:textColor="#2563EB"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <!-- CUSTOMER INFORMATION -->
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvCustomerName2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Sneha Patil"
+                            android:textColor="#12372A"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvCustomerPhone2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="☎ 8765432109"
+                            android:textColor="#455A64"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/tvCustomerService2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="🍱 Tiffin Service • Lunch • Mon-Sat"
+                            android:textColor="#607D78"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/tvCustomerAddress2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="📍 Kothrud, Pune"
+                            android:textColor="#607D78"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+
+                    <!-- STATUS + DETAILS -->
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvCustomerStatus2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="#E4F6EE"
+                            android:paddingStart="10dp"
+                            android:paddingTop="6dp"
+                            android:paddingEnd="10dp"
+                            android:paddingBottom="6dp"
+                            android:text="● Active"
+                            android:textColor="#087F5B"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/btnCustomerDetails2"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:text="›"
+                            android:textColor="#263238"
+                            android:textSize="27sp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <!-- Part 6 will continue here -->
+                <!-- ================= CUSTOMER 3 ================= -->
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#E8EFEC" />
+
+                <LinearLayout
+                    android:id="@+id/customerRow3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:minHeight="115dp"
+                    android:orientation="horizontal"
+                    android:padding="14dp">
+
+                    <!-- Profile -->
+
+                    <TextView
+                        android:layout_width="58dp"
+                        android:layout_height="58dp"
+                        android:background="#EEE5FF"
+                        android:gravity="center"
+                        android:text="VJ"
+                        android:textColor="#7C3AED"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <!-- Customer Details -->
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvCustomerName3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Vijay Jadhav"
+                            android:textColor="#12372A"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvCustomerPhone3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="☎ 9922334455"
+                            android:textColor="#455A64"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/tvCustomerService3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="🥛 Milk Subscription • 500ml • Daily"
+                            android:textColor="#607D78"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/tvCustomerAddress3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="📍 Karve Nagar, Pune"
+                            android:textColor="#607D78"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                    <!-- Status -->
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvCustomerStatus3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="#E4F6EE"
+                            android:paddingStart="10dp"
+                            android:paddingTop="6dp"
+                            android:paddingEnd="10dp"
+                            android:paddingBottom="6dp"
+                            android:text="● Active"
+                            android:textColor="#087F5B"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/btnCustomerDetails3"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:text="›"
+                            android:textColor="#263238"
+                            android:textSize="27sp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <!-- ================= CUSTOMER 4 ================= -->
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#E8EFEC" />
+
+                <LinearLayout
+                    android:id="@+id/customerRow4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:minHeight="115dp"
+                    android:orientation="horizontal"
+                    android:padding="14dp">
+
+                    <!-- Profile -->
+
+                    <TextView
+                        android:layout_width="58dp"
+                        android:layout_height="58dp"
+                        android:background="#FFF0C9"
+                        android:gravity="center"
+                        android:text="AK"
+                        android:textColor="#B27A00"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <!-- Customer Details -->
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvCustomerName4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Aarti Kulkarni"
+                            android:textColor="#12372A"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvCustomerPhone4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="☎ 9090909090"
+                            android:textColor="#455A64"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/tvCustomerService4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="💧 Water • 20 Litre • Weekly"
+                            android:textColor="#607D78"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/tvCustomerAddress4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="📍 Warje, Pune"
+                            android:textColor="#607D78"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                    <!-- Status -->
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvCustomerStatus4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="#FFF1D6"
+                            android:paddingStart="10dp"
+                            android:paddingTop="6dp"
+                            android:paddingEnd="10dp"
+                            android:paddingBottom="6dp"
+                            android:text="● Paused"
+                            android:textColor="#D99800"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/btnCustomerDetails4"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:text="›"
+                            android:textColor="#263238"
+                            android:textSize="27sp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <!-- ================= CUSTOMER 5 ================= -->
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#E8EFEC" />
+
+                <LinearLayout
+                    android:id="@+id/customerRow5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:minHeight="115dp"
+                    android:orientation="horizontal"
+                    android:padding="14dp">
+
+                    <!-- Profile -->
+
+                    <TextView
+                        android:layout_width="58dp"
+                        android:layout_height="58dp"
+                        android:background="#FFE4EB"
+                        android:gravity="center"
+                        android:text="MG"
+                        android:textColor="#B23A5A"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <!-- Customer Details -->
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvCustomerName5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Mayur Gaikwad"
+                            android:textColor="#12372A"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvCustomerPhone5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="☎ 8886666655"
+                            android:textColor="#455A64"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/tvCustomerService5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="📰 Newspaper • Daily"
+                            android:textColor="#607D78"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/tvCustomerAddress5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="📍 Hinjewadi, Pune"
+                            android:textColor="#607D78"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                    <!-- Status -->
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvCustomerStatus5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="#E4F6EE"
+                            android:paddingStart="10dp"
+                            android:paddingTop="6dp"
+                            android:paddingEnd="10dp"
+                            android:paddingBottom="6dp"
+                            android:text="● Active"
+                            android:textColor="#087F5B"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/btnCustomerDetails5"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:text="›"
+                            android:textColor="#263238"
+                            android:textSize="27sp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
+
