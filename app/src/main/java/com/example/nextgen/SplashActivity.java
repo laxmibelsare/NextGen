@@ -1,11 +1,16 @@
 package com.example.nextgen;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -27,6 +32,24 @@ public class SplashActivity extends AppCompatActivity {
         partBottomLeft = findViewById(R.id.partBottomLeft);
         partBottomRight = findViewById(R.id.partBottomRight);
 
+        TextView txtDailyServe = findViewById(R.id.txtDailyServe);
+
+        SpannableString text = new SpannableString("Daily Serve");
+
+        text.setSpan(
+                new ForegroundColorSpan(Color.parseColor("#123B5D")),
+                0, 5,
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+        );
+
+        text.setSpan(
+                new ForegroundColorSpan(Color.parseColor("#009688")),
+                6, 11,
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+        );
+
+        txtDailyServe.setText(text);
+
         finalLogo = findViewById(R.id.finalLogo);
         brandLayout = findViewById(R.id.brandLayout);
         partTopLeft.setTranslationX(0);
@@ -37,42 +60,33 @@ public class SplashActivity extends AppCompatActivity {
 
         partBottomLeft.setTranslationX(0);
         partBottomLeft.setTranslationY(0);
-
         partBottomRight.setTranslationX(0);
         partBottomRight.setTranslationY(0);
 
         partTopLeft.postDelayed(() -> {
-
-            // TOP LEFT
             partTopLeft.animate()
                     .translationX(-450)
                     .translationY(-750)
                     .setDuration(0)
                     .start();
 
-            // TOP RIGHT
             partTopRight.animate()
                     .translationX(450)
                     .translationY(-750)
                     .setDuration(0)
                     .start();
 
-            // BOTTOM LEFT
             partBottomLeft.animate()
                     .translationX(-450)
                     .translationY(750)
                     .setDuration(0)
                     .start();
 
-            // BOTTOM RIGHT
             partBottomRight.animate()
                     .translationX(450)
                     .translationY(750)
                     .setDuration(0)
                     .start();
-
-
-            // Start all 4 parts coming to center
 
             partTopLeft.animate()
                     .translationX(0)
@@ -102,8 +116,6 @@ public class SplashActivity extends AppCompatActivity {
                     .setInterpolator(new AccelerateDecelerateInterpolator())
                     .start();
 
-
-            // After 1 second show final logo
             partTopLeft.postDelayed(() -> {
 
                 partTopLeft.setVisibility(View.GONE);
@@ -124,8 +136,6 @@ public class SplashActivity extends AppCompatActivity {
                         .setDuration(600)
                         .start();
 
-
-                // Show app name
                 brandLayout.setAlpha(0f);
 
                 brandLayout.animate()
@@ -134,13 +144,9 @@ public class SplashActivity extends AppCompatActivity {
                         .setStartDelay(300)
                         .start();
 
-
-                // Go to next screen
                 brandLayout.postDelayed(() -> {
 
-                    Intent intent =
-                            new Intent(SplashActivity.this, Selection_FormActivity.class);
-
+                    Intent intent = new Intent(SplashActivity.this, Selection_FormActivity.class);
                     startActivity(intent);
                     finish();
 

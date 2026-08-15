@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/splashRoot"
@@ -7,7 +6,6 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF">
 
-    <!-- Top Left -->
     <ImageView
         android:id="@+id/partTopLeft"
         android:layout_width="100dp"
@@ -16,7 +14,7 @@
         android:src="@drawable/part1"
         android:scaleType="fitCenter" />
 
-    <!-- Top Right -->
+
     <ImageView
         android:id="@+id/partTopRight"
         android:layout_width="100dp"
@@ -25,7 +23,7 @@
         android:src="@drawable/part2"
         android:scaleType="fitCenter" />
 
-    <!-- Bottom Left -->
+
     <ImageView
         android:id="@+id/partBottomLeft"
         android:layout_width="100dp"
@@ -34,7 +32,6 @@
         android:src="@drawable/part3"
         android:scaleType="fitCenter" />
 
-    <!-- Bottom Right -->
     <ImageView
         android:id="@+id/partBottomRight"
         android:layout_width="100dp"
@@ -43,43 +40,56 @@
         android:src="@drawable/part4"
         android:scaleType="fitCenter" />
 
-    <!-- Final Complete Logo -->
     <ImageView
         android:id="@+id/finalLogo"
-        android:layout_width="180dp"
-        android:layout_height="180dp"
+        android:layout_width="240dp"
+        android:layout_height="240dp"
         android:layout_gravity="center"
+        android:layout_marginTop="-80dp"
         android:src="@drawable/app_logo"
         android:scaleType="fitCenter"
         android:alpha="0" />
 
-    <!-- App Name -->
+
     <LinearLayout
         android:id="@+id/brandLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="390dp"
+        android:layout_marginTop="430dp"
         android:orientation="vertical"
         android:gravity="center"
         android:alpha="0">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Daily Serve"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            android:textColor="#000000"
-            android:letterSpacing="0.08" />
 
         <TextView
+            android:id="@+id/txtDailyServe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:text=""
+            android:fontFamily="@font/abril_fatface"
+            android:letterSpacing="0.04"
+            android:text="Daily Serve"
+            android:textColor="#087F5B"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+
+        <View
+            android:layout_width="55dp"
+            android:layout_height="3dp"
+            android:layout_marginTop="7dp"
+            android:background="#009688" />
+
+        <!-- Tagline -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Your Daily Needs, Served."
             android:textSize="14sp"
-            android:textColor="#009688" />
+            android:textStyle="normal"
+            android:textColor="#009688"
+            android:fontFamily="sans" />
 
     </LinearLayout>
 
