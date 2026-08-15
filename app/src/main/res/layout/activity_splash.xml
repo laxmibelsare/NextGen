@@ -50,7 +50,6 @@
         android:scaleType="fitCenter"
         android:alpha="0" />
 
-
     <LinearLayout
         android:id="@+id/brandLayout"
         android:layout_width="wrap_content"
@@ -60,7 +59,6 @@
         android:orientation="vertical"
         android:gravity="center"
         android:alpha="0">
-
 
         <TextView
             android:id="@+id/txtDailyServe"
@@ -80,7 +78,7 @@
             android:layout_marginTop="7dp"
             android:background="#009688" />
 
-        <!-- Tagline -->
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
