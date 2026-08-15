@@ -12,7 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NextGen">
         <activity
-            android:name=".HomeActivity"
+            android:name=".home_customerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Home_vendorActivity"
             android:exported="false" />
         <activity
             android:name=".VendorFragments.ProfileActivity"
