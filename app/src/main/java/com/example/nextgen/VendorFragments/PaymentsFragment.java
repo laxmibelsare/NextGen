@@ -10,13 +10,12 @@ import android.view.ViewGroup;
 
 import com.example.nextgen.R;
 
-public class PaymentsFragment extends Fragment {
-
-
+public class PaymentsFragment extends Fragment
+{
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+    {
          View view = inflater.inflate(R.layout.fragment_payments,container, false);
 
         return view;
