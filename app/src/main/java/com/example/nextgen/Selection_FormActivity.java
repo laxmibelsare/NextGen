@@ -3,6 +3,9 @@ package com.example.nextgen;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -15,6 +18,7 @@ import androidx.core.view.WindowInsetsCompat;
 public class Selection_FormActivity extends AppCompatActivity {
 
     CardView CustomerArrow, VendorArrow;
+    ImageView Scooty;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +28,7 @@ public class Selection_FormActivity extends AppCompatActivity {
 
         CustomerArrow = findViewById(R.id.cvCustomerArrow);
         VendorArrow = findViewById(R.id.cvVendorArrow);
+        Scooty = findViewById(R.id.ivScootyMoving);
 
         CustomerArrow.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,6 +45,9 @@ public class Selection_FormActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        Animation animation = AnimationUtils.loadAnimation(Selection_FormActivity.this,R.anim.scooty_moving);
+        Scooty.startAnimation(animation);
 
     }
 }
