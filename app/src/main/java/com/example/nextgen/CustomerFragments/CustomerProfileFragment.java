@@ -10,11 +10,14 @@ import android.view.ViewGroup;
 
 import com.example.nextgen.R;
 
-public class ProfileFragment extends Fragment
+public class CustomerProfileFragment extends Fragment
 {
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_profile2, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+    {
+
+        View view = inflater.inflate(R.layout.fragment_customerprofile, container, false);
+
         return view;
     }
 }
