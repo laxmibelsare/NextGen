@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center_horizontal"
+        android:layout_marginTop="30dp"
         android:padding="24dp">
 
         <androidx.cardview.widget.CardView
@@ -38,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="Forgot Password?"
-            android:textColor="#12372A"
+            android:textColor="#087F5B"
             android:textSize="28sp"
             android:textStyle="bold" />
 

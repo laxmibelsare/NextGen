@@ -3,17 +3,19 @@ package com.example.nextgen;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.button.MaterialButton;
+
 public class LoginVendorActivity extends AppCompatActivity
 {
 
-    Button btnLogin;
+    MaterialButton btnLogin;
 
-    TextView SignUp;
+    TextView SignUp,forgetPass;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -22,6 +24,7 @@ public class LoginVendorActivity extends AppCompatActivity
 
         btnLogin = findViewById(R.id.btnLogin);
         SignUp = findViewById(R.id.tvSignUp);
+        forgetPass = findViewById(R.id.tvForgotPassword);
 
         btnLogin.setOnClickListener(new View.OnClickListener()
         {
@@ -40,6 +43,17 @@ public class LoginVendorActivity extends AppCompatActivity
             public void onClick(View v)
             {
                 Intent i = new Intent(LoginVendorActivity.this, RegistrationVendorActivity.class);
+                startActivity(i);
+
+            }
+        });
+
+        forgetPass.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent i = new Intent(LoginVendorActivity.this, ForgetVendorActivity.class);
                 startActivity(i);
 
             }
