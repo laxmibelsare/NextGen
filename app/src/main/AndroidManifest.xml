@@ -18,9 +18,6 @@
             android:name=".Home_vendorActivity"
             android:exported="false" />
         <activity
-            android:name=".VendorFragments.ProfileActivity"
-            android:exported="false" />
-        <activity
             android:name=".Selection_FormActivity"
             android:exported="false" />
         <activity
