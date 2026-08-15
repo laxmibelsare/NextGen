@@ -44,4 +44,6 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
     androidTestImplementation(libs.ext.junit)
     implementation("com.airbnb.android:lottie:6.4.0")
+    implementation("com.loopj.android:android-async-http:1.4.11")
+
 }
