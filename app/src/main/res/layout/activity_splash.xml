@@ -1,20 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/splashRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SplashActivity">
+    android:background="#FFFFFF">
 
-    <TextView
+    <!-- Top Left -->
+    <ImageView
+        android:id="@+id/partTopLeft"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:src="@drawable/part1"
+        android:scaleType="fitCenter" />
+
+    <!-- Top Right -->
+    <ImageView
+        android:id="@+id/partTopRight"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:src="@drawable/part2"
+        android:scaleType="fitCenter" />
+
+    <!-- Bottom Left -->
+    <ImageView
+        android:id="@+id/partBottomLeft"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:src="@drawable/part3"
+        android:scaleType="fitCenter" />
+
+    <!-- Bottom Right -->
+    <ImageView
+        android:id="@+id/partBottomRight"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:src="@drawable/part4"
+        android:scaleType="fitCenter" />
+
+    <!-- Final Complete Logo -->
+    <ImageView
+        android:id="@+id/finalLogo"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_gravity="center"
+        android:src="@drawable/app_logo"
+        android:scaleType="fitCenter"
+        android:alpha="0" />
+
+    <!-- App Name -->
+    <LinearLayout
+        android:id="@+id/brandLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="390dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:alpha="0">
 
-</LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Daily Serve"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:letterSpacing="0.08" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text=""
+            android:textSize="14sp"
+            android:textColor="#009688" />
+
+    </LinearLayout>
+
+</FrameLayout>
