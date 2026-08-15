@@ -25,49 +25,84 @@ public class Home_vendorActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_home_vendor);
 
-        // Find views
         toolbar = findViewById(R.id.toolbar);
         bottomNavigation = findViewById(R.id.bottomNavigation);
 
-        // Set Toolbar
+        // Toolbar
         setSupportActionBar(toolbar);
 
+
+        // Open Dashboard when Activity starts
         if (savedInstanceState == null) {
+
             getSupportFragmentManager()
                     .beginTransaction()
-                    .replace(R.id.fragment_container, new DashboardFragment())
+                    .replace(
+                            R.id.fragment_container,
+                            new DashboardFragment()
+                    )
                     .commit();
 
-            // Select Home item by default
-            bottomNavigation.setSelectedItemId(R.id.empty);
+            // Select CENTER Home
+            bottomNavigation.setSelectedItemId(R.id.home);
         }
 
-        // Bottom Menu Click
+
+        // Bottom Navigation
         bottomNavigation.setOnItemSelectedListener(item -> {
 
             Fragment fragment = null;
 
             int itemId = item.getItemId();
 
+
+            // Customers
             if (itemId == R.id.Customers) {
+
                 fragment = new CustomersFragment();
+            }
 
-            } else if (itemId == R.id.deliveries) {
+
+            // Deliveries
+            else if (itemId == R.id.deliveries) {
+
                 fragment = new DeliveriesVendorFragment();
+            }
 
-            } else if (itemId == R.id.Payment) {
+
+            // HOME - CENTER
+            else if (itemId == R.id.home) {
+
+                fragment = new DashboardFragment();
+            }
+
+
+            // Payment
+            else if (itemId == R.id.Payment) {
+
                 fragment = new PaymentsVendorFragment();
+            }
 
-            } else if (itemId == R.id.profile) {
+
+            // Profile
+            else if (itemId == R.id.profile) {
+
                 fragment = new VendorProfileFragment();
             }
 
+
+            // Load Fragment
             if (fragment != null) {
+
                 getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.fragment_container, fragment)
+                        .replace(
+                                R.id.fragment_container,
+                                fragment
+                        )
                         .commit();
 
                 return true;
@@ -77,69 +112,101 @@ public class Home_vendorActivity extends AppCompatActivity {
         });
     }
 
-    // Top Toolbar Menu
+
+    // ==========================================
+    // TOP TOOLBAR MENU
+    // ==========================================
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
-        getMenuInflater().inflate(R.menu.home_menu_vendors, menu);
+        getMenuInflater().inflate(
+                R.menu.home_menu_vendors,
+                menu
+        );
 
         return true;
     }
 
-    // Top Menu Click
+
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+    public boolean onOptionsItemSelected(
+            @NonNull MenuItem item) {
 
         int itemId = item.getItemId();
 
+
         if (itemId == R.id.menuHomeBusiness) {
 
-            Toast.makeText(this,
+            Toast.makeText(
+                    this,
                     "Business Details",
-                    Toast.LENGTH_SHORT).show();
-
-            return true;
-
-        } else if (itemId == R.id.menuHomeMyService) {
-
-            Toast.makeText(this,
-                    "My Service",
-                    Toast.LENGTH_SHORT).show();
-
-            return true;
-
-        } else if (itemId == R.id.menuHomeNotification) {
-
-            Toast.makeText(this,
-                    "Notification",
-                    Toast.LENGTH_SHORT).show();
-
-            return true;
-
-        } else if (itemId == R.id.menuHomeSettings) {
-
-            Toast.makeText(this,
-                    "Settings",
-                    Toast.LENGTH_SHORT).show();
-
-            return true;
-
-        } else if (itemId == R.id.menuHomeHelp_Support) {
-
-            Toast.makeText(this,
-                    "Help & Support",
-                    Toast.LENGTH_SHORT).show();
-
-            return true;
-
-        } else if (itemId == R.id.menuHomeLogout) {
-
-            Toast.makeText(this,
-                    "Logout",
-                    Toast.LENGTH_SHORT).show();
+                    Toast.LENGTH_SHORT
+            ).show();
 
             return true;
         }
+
+
+        else if (itemId == R.id.menuHomeMyService) {
+
+            Toast.makeText(
+                    this,
+                    "My Service",
+                    Toast.LENGTH_SHORT
+            ).show();
+
+            return true;
+        }
+
+
+        else if (itemId == R.id.menuHomeNotification) {
+
+            Toast.makeText(
+                    this,
+                    "Notification",
+                    Toast.LENGTH_SHORT
+            ).show();
+
+            return true;
+        }
+
+
+        else if (itemId == R.id.menuHomeSettings) {
+
+            Toast.makeText(
+                    this,
+                    "Settings",
+                    Toast.LENGTH_SHORT
+            ).show();
+
+            return true;
+        }
+
+
+        else if (itemId == R.id.menuHomeHelp_Support) {
+
+            Toast.makeText(
+                    this,
+                    "Help & Support",
+                    Toast.LENGTH_SHORT
+            ).show();
+
+            return true;
+        }
+
+
+        else if (itemId == R.id.menuHomeLogout) {
+
+            Toast.makeText(
+                    this,
+                    "Logout",
+                    Toast.LENGTH_SHORT
+            ).show();
+
+            return true;
+        }
+
 
         return super.onOptionsItemSelected(item);
     }

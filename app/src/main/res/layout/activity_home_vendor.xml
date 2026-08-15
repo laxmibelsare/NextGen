@@ -16,9 +16,9 @@
         android:elevation="6dp">
 
         <TextView
+            android:id="@+id/tvToolbarName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hello"
             android:textStyle="bold"
             android:textSize="18sp"
             android:textColor="@android:color/white"
@@ -58,9 +58,10 @@
             android:layout_height="50dp"
             android:layout_gravity="bottom|center"
             android:layout_marginBottom="35dp"
-            android:src="@drawable/home_menu"
-            app:backgroundTint="@color/mint_greean"
-            app:tint="@android:color/white"
+            android:src="@drawable/ic_payments"
+            android:tint="@color/white"
+            app:backgroundTint="@color/white"
+            app:tint="@android:color/black"
             app:elevation="12dp"/>
 
         <com.google.android.material.bottomappbar.BottomAppBar
