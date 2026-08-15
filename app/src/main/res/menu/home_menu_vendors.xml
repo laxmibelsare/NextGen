@@ -24,7 +24,7 @@
         android:id="@+id/menuHomeSettings"
         android:title=" Settings"
         android:icon="@drawable/settings"
-        android:iconTint="@color/black"
+        android:iconTint="@color/white"
         app:showAsAction="always"/>
 
     <item
@@ -36,7 +36,7 @@
         android:id="@+id/menuHomeLogout"
         android:title="Logout"
         android:icon="@drawable/logout"
-        android:iconTint="@android:color/black"
+        android:iconTint="@android:color/white"
         app:showAsAction="always"/>
 
 </menu>
