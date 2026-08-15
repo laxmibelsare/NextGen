@@ -7,13 +7,14 @@ import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class Selection_FormActivity extends AppCompatActivity {
 
-    TextView CustomerArrow, VendorArrow;
+    CardView CustomerArrow, VendorArrow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,8 +22,8 @@ public class Selection_FormActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_selection_form);
 
-        CustomerArrow = findViewById(R.id.tvCustomerArrow);
-        VendorArrow = findViewById(R.id.tvVendorArrow);
+        CustomerArrow = findViewById(R.id.cvCustomerArrow);
+        VendorArrow = findViewById(R.id.cvVendorArrow);
 
         CustomerArrow.setOnClickListener(new View.OnClickListener() {
             @Override
