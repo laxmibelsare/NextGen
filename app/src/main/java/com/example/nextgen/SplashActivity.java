@@ -1,8 +1,10 @@
 package com.example.nextgen;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
@@ -27,37 +29,59 @@ public class SplashActivity extends AppCompatActivity {
 
     LottieAnimationView lottieAnimationView;
 
+    SharedPreferences preferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_splash);
+
+        // SharedPreferences
+        preferences =
+                PreferenceManager.getDefaultSharedPreferences(this);
+
 
         partTopLeft = findViewById(R.id.partTopLeft);
         partTopRight = findViewById(R.id.partTopRight);
         partBottomLeft = findViewById(R.id.partBottomLeft);
         partBottomRight = findViewById(R.id.partBottomRight);
-        lottieAnimationView =findViewById(R.id.lottieGirl);
+
+        lottieAnimationView = findViewById(R.id.lottieGirl);
 
         TextView txtDailyServe = findViewById(R.id.txtDailyServe);
 
-        SpannableString text = new SpannableString("Daily Serve");
+
+        // Daily Serve Text Color
+        SpannableString text =
+                new SpannableString("Daily Serve");
 
         text.setSpan(
-                new ForegroundColorSpan(Color.parseColor("#123B5D")),
-                0, 5,
+                new ForegroundColorSpan(
+                        Color.parseColor("#123B5D")
+                ),
+                0,
+                5,
                 Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
         );
 
         text.setSpan(
-                new ForegroundColorSpan(Color.parseColor("#009688")),
-                6, 11,
+                new ForegroundColorSpan(
+                        Color.parseColor("#009688")
+                ),
+                6,
+                11,
                 Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
         );
 
         txtDailyServe.setText(text);
 
+
         finalLogo = findViewById(R.id.finalLogo);
         brandLayout = findViewById(R.id.brandLayout);
+
+
+        // Initial Position
         partTopLeft.setTranslationX(0);
         partTopLeft.setTranslationY(0);
 
@@ -66,10 +90,15 @@ public class SplashActivity extends AppCompatActivity {
 
         partBottomLeft.setTranslationX(0);
         partBottomLeft.setTranslationY(0);
+
         partBottomRight.setTranslationX(0);
         partBottomRight.setTranslationY(0);
 
+
+        // Logo Animation
         partTopLeft.postDelayed(() -> {
+
+            // Move parts outside
             partTopLeft.animate()
                     .translationX(-450)
                     .translationY(-750)
@@ -94,34 +123,46 @@ public class SplashActivity extends AppCompatActivity {
                     .setDuration(0)
                     .start();
 
+
+            // Bring parts to center
             partTopLeft.animate()
                     .translationX(0)
                     .translationY(0)
                     .setDuration(1000)
-                    .setInterpolator(new AccelerateDecelerateInterpolator())
+                    .setInterpolator(
+                            new AccelerateDecelerateInterpolator()
+                    )
                     .start();
 
             partTopRight.animate()
                     .translationX(0)
                     .translationY(0)
                     .setDuration(1000)
-                    .setInterpolator(new AccelerateDecelerateInterpolator())
+                    .setInterpolator(
+                            new AccelerateDecelerateInterpolator()
+                    )
                     .start();
 
             partBottomLeft.animate()
                     .translationX(0)
                     .translationY(0)
                     .setDuration(1000)
-                    .setInterpolator(new AccelerateDecelerateInterpolator())
+                    .setInterpolator(
+                            new AccelerateDecelerateInterpolator()
+                    )
                     .start();
 
             partBottomRight.animate()
                     .translationX(0)
                     .translationY(0)
                     .setDuration(1000)
-                    .setInterpolator(new AccelerateDecelerateInterpolator())
+                    .setInterpolator(
+                            new AccelerateDecelerateInterpolator()
+                    )
                     .start();
 
+
+            // After logo animation
             partTopLeft.postDelayed(() -> {
 
                 partTopLeft.setVisibility(View.GONE);
@@ -129,12 +170,15 @@ public class SplashActivity extends AppCompatActivity {
                 partBottomLeft.setVisibility(View.GONE);
                 partBottomRight.setVisibility(View.GONE);
 
+
                 finalLogo.setVisibility(View.VISIBLE);
 
                 finalLogo.setAlpha(0f);
                 finalLogo.setScaleX(0.7f);
                 finalLogo.setScaleY(0.7f);
 
+
+                // Final Logo Animation
                 finalLogo.animate()
                         .alpha(1f)
                         .scaleX(1f)
@@ -142,6 +186,8 @@ public class SplashActivity extends AppCompatActivity {
                         .setDuration(600)
                         .start();
 
+
+                // Brand Animation
                 brandLayout.setAlpha(0f);
 
                 brandLayout.animate()
@@ -150,24 +196,82 @@ public class SplashActivity extends AppCompatActivity {
                         .setStartDelay(300)
                         .start();
 
+
+                // Wait and decide next screen
                 brandLayout.postDelayed(() -> {
 
-                    Intent intent = new Intent(SplashActivity.this, Selection_FormActivity.class);
-                    startActivity(intent);
-                    finish();
-
-                    brandLayout.postDelayed(() -> {
-
-                        lottieAnimationView.setVisibility(View.VISIBLE);
-                        lottieAnimationView.setRepeatCount(LottieDrawable.INFINITE);
-                        lottieAnimationView.playAnimation();
-
-                    }, 15000);
+                    openNextScreen();
 
                 }, 1800);
+
 
             }, 1000);
 
         }, 500);
+    }
+
+
+    private void openNextScreen() {
+
+        boolean selectionCompleted =
+                preferences.getBoolean(
+                        "selectionCompleted",
+                        false
+                );
+
+
+        Intent intent;
+
+
+        if (selectionCompleted) {
+
+            // Selection Form already shown
+            // So don't show it again
+
+            String role =
+                    preferences.getString(
+                            "selectedRole",
+                            ""
+                    );
+
+
+            if (role.equals("customer")) {
+
+                intent = new Intent(
+                        SplashActivity.this,
+                        LoginCustomerActivity.class
+                );
+
+            } else if (role.equals("vendor")) {
+
+                intent = new Intent(
+                        SplashActivity.this,
+                        LoginVendorActivity.class
+                );
+
+            } else {
+
+                // Safety fallback
+                intent = new Intent(
+                        SplashActivity.this,
+                        Selection_FormActivity.class
+                );
+            }
+
+
+        } else {
+
+            // First time
+            // Show Selection Form
+
+            intent = new Intent(
+                    SplashActivity.this,
+                    Selection_FormActivity.class
+            );
+        }
+
+
+        startActivity(intent);
+        finish();
     }
 }
