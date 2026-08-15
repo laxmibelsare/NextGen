@@ -17,21 +17,20 @@ import com.example.nextgen.VendorFragments.PaymentsVendorFragment;
 import com.example.nextgen.VendorFragments.VendorProfileFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class Home_vendorActivity extends AppCompatActivity {
-
+public class Home_vendorActivity extends AppCompatActivity
+{
     Toolbar toolbar;
     BottomNavigationView bottomNavigation;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_vendor);
 
-        // Find views
         toolbar = findViewById(R.id.toolbar);
         bottomNavigation = findViewById(R.id.bottomNavigation);
 
-        // Set Toolbar
         setSupportActionBar(toolbar);
 
         if (savedInstanceState == null) {
@@ -40,7 +39,7 @@ public class Home_vendorActivity extends AppCompatActivity {
                     .replace(R.id.fragment_container, new DashboardFragment())
                     .commit();
 
-            // Select Home item by default
+
             bottomNavigation.setSelectedItemId(R.id.empty);
         }
 
@@ -77,7 +76,7 @@ public class Home_vendorActivity extends AppCompatActivity {
         });
     }
 
-    // Top Toolbar Menu
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 

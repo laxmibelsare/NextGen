@@ -10,19 +10,11 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="80dp"
         android:background="@color/deep_emerald"
         android:paddingTop="15dp"
         android:elevation="6dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hello"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:textColor="@android:color/white"
-            android:layout_gravity="center_vertical"/>
     </androidx.appcompat.widget.Toolbar>
 
     <FrameLayout
