@@ -13,7 +13,8 @@ public class LoginVendorActivity extends AppCompatActivity
 
     Button btnLogin;
 
-    TextView SignUp;
+    TextView SignUp,forgetPass;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -22,6 +23,7 @@ public class LoginVendorActivity extends AppCompatActivity
 
         btnLogin = findViewById(R.id.btnLogin);
         SignUp = findViewById(R.id.tvSignUp);
+        forgetPass = findViewById(R.id.tvForgotPassword);
 
         btnLogin.setOnClickListener(new View.OnClickListener()
         {
@@ -40,6 +42,17 @@ public class LoginVendorActivity extends AppCompatActivity
             public void onClick(View v)
             {
                 Intent i = new Intent(LoginVendorActivity.this, RegistrationVendorActivity.class);
+                startActivity(i);
+
+            }
+        });
+
+        forgetPass.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent i = new Intent(LoginVendorActivity.this, ForgetActivity.class);
                 startActivity(i);
 
             }
