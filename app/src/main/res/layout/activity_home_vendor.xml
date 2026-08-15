@@ -18,7 +18,6 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hello"
             android:textStyle="bold"
             android:textSize="18sp"
             android:textColor="@android:color/white"
@@ -52,16 +51,6 @@
         android:layout_margin="5dp"
         app:cardBackgroundColor="@color/deep_emerald">
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fabAI"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="bottom|center"
-            android:layout_marginBottom="35dp"
-            android:src="@drawable/ic_payments"
-            app:backgroundTint="@color/white"
-            app:tint="@android:color/black"
-            app:elevation="12dp"/>
 
         <com.google.android.material.bottomappbar.BottomAppBar
             android:id="@+id/bottomAppBar"
