@@ -2,6 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#F8F5F2">
 
     <LinearLayout
@@ -190,16 +191,17 @@
             android:textSize="13sp" />
 
         <!-- Pay Button -->
-        <Button
-            android:id="@+id/btnPay"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLogin"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/payment_button_bg"
-            android:text="PAY ₹450"
-            android:textColor="@android:color/white"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:layout_height="52dp"
+            android:layout_marginTop="8dp"
+            android:text="Pay"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"
+          android:backgroundTint="@color/deep_emerald"
+            app:cornerRadius="12dp" />
 
     </LinearLayout>
 
