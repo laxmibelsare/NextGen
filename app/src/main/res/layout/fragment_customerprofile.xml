@@ -12,37 +12,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:layout_marginTop="30dp"
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
         android:paddingTop="20dp"
         android:paddingBottom="30dp">
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Profile"
-                android:textColor="#12372A"
-                android:textSize="26sp"
-                android:textStyle="bold" />
-
-            <ImageView
-                android:id="@+id/ivSettings"
-                android:layout_width="26dp"
-                android:layout_height="26dp"
-                android:src="@drawable/settings_ic"
-                android:contentDescription="Settings"
-                app:tint="#087F5B" />
-
-        </LinearLayout>
-
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
@@ -61,26 +35,31 @@
                 android:orientation="vertical"
                 android:padding="20dp">
 
-                <!-- Profile Image -->
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="86dp"
-                    android:layout_height="86dp"
-                    app:cardBackgroundColor="#FFFFFF"
-                    app:cardCornerRadius="43dp"
-                    app:cardElevation="1dp"
-                    app:strokeColor="#20C997"
-                    app:strokeWidth="2dp">
+
+                <FrameLayout
+                    android:layout_width="100dp"
+                    android:layout_height="100dp">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imgProfile"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/app_logo"
+                        app:shapeAppearanceOverlay="@style/CardView"/>
 
                     <ImageView
-                        android:id="@+id/ivProfile"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:padding="18dp"
-                        android:src="@drawable/person_icon"
-                        android:scaleType="centerInside"
-                        android:contentDescription="Profile Picture" />
+                        android:id="@+id/ivProfileCamera"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_gravity="bottom|end"
+                        android:layout_margin="3dp"
+                        android:background="@drawable/camera_bg_circle"
+                        android:padding="5dp"
+                        android:src="@drawable/camera_icon"
+                        android:tint="@color/deep_emerald" />
 
-                </com.google.android.material.card.MaterialCardView>
+                </FrameLayout>
 
 
                 <TextView
@@ -268,7 +247,7 @@
                     <ImageView
                         android:layout_width="23dp"
                         android:layout_height="23dp"
-                        android:src="@drawable/subscription_ic"
+                        android:src="@drawable/settings"
                         app:tint="#087F5B" />
 
                     <TextView
@@ -308,7 +287,7 @@
                     <ImageView
                         android:layout_width="23dp"
                         android:layout_height="23dp"
-                        android:src="@drawable/location_ic"
+                        android:src="@drawable/lock_ic"
                         app:tint="#087F5B" />
 
                     <TextView
@@ -349,7 +328,7 @@
                     <ImageView
                         android:layout_width="23dp"
                         android:layout_height="23dp"
-                        android:src="@drawable/payment_ic"
+                        android:src="@drawable/ic_payments"
                         app:tint="#087F5B" />
 
                     <TextView
@@ -390,7 +369,7 @@
                     <ImageView
                         android:layout_width="23dp"
                         android:layout_height="23dp"
-                        android:src="@drawable/notification_ic"
+                        android:src="@drawable/lock_ic"
                         app:tint="#087F5B" />
 
                     <TextView
