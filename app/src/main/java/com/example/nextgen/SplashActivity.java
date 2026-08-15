@@ -159,7 +159,6 @@ public class SplashActivity extends AppCompatActivity {
                     brandLayout.postDelayed(() -> {
 
                         lottieAnimationView.setVisibility(View.VISIBLE);
-
                         lottieAnimationView.setRepeatCount(LottieDrawable.INFINITE);
                         lottieAnimationView.playAnimation();
 
