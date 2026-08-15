@@ -14,6 +14,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.airbnb.lottie.LottieAnimationView;
+import com.airbnb.lottie.LottieDrawable;
+
 public class SplashActivity extends AppCompatActivity {
 
     ImageView partTopLeft, partTopRight;
@@ -21,6 +24,8 @@ public class SplashActivity extends AppCompatActivity {
     ImageView finalLogo;
 
     LinearLayout brandLayout;
+
+    LottieAnimationView lottieAnimationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +36,7 @@ public class SplashActivity extends AppCompatActivity {
         partTopRight = findViewById(R.id.partTopRight);
         partBottomLeft = findViewById(R.id.partBottomLeft);
         partBottomRight = findViewById(R.id.partBottomRight);
+        lottieAnimationView =findViewById(R.id.lottieGirl);
 
         TextView txtDailyServe = findViewById(R.id.txtDailyServe);
 
@@ -150,10 +156,13 @@ public class SplashActivity extends AppCompatActivity {
                     startActivity(intent);
                     finish();
 
+                    lottieAnimationView.setRepeatCount(LottieDrawable.INFINITE);
+                    lottieAnimationView.playAnimation();
+
                 }, 1800);
 
-            }, 1000);
+            }, 900);
 
-        }, 300);
+        }, 3000);
     }
 }
