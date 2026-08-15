@@ -28,7 +28,6 @@
             android:paddingTop="28dp"
             android:paddingBottom="28dp">
 
-            <!-- DailyServe Logo -->
             <ImageView
                 android:id="@+id/appLogo"
                 android:layout_width="90dp"
