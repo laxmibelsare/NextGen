@@ -1,14 +1,1076 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".VendorFragments.DeliveriesVendorFragment">
+    android:background="#F8F9F5"
+    android:fillViewport="true">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="24dp">
 
-</FrameLayout>
+        <!-- ================= HEADER ================= -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="20dp"
+            android:paddingTop="24dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="28dp"
+            android:background="#087F5B">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Vendor Deliveries"
+                    android:textColor="#FFFFFF"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/btnNotifications"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:text="🔔"
+                    android:textSize="20sp"
+                    android:contentDescription="Notifications" />
+
+                <TextView
+                    android:id="@+id/btnSettings"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="8dp"
+                    android:gravity="center"
+                    android:text="⚙"
+                    android:textSize="20sp"
+                    android:textColor="#FFFFFF"
+                    android:contentDescription="Settings" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Track and manage today's deliveries"
+                android:textColor="#D8F3EA"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <!-- ================= DATE CARD ================= -->
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="-18dp"
+            android:layout_marginEnd="16dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <!-- Calendar Icon -->
+
+                <TextView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:gravity="center"
+                    android:text="📅"
+                    android:textSize="23sp" />
+
+                <!-- Date Information -->
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvDeliveryDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Today, 15 August 2026"
+                        android:textColor="#12372A"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvDeliveryDay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:text="Saturday"
+                        android:textColor="#607D78"
+                        android:textSize="13sp" />
+
+                </LinearLayout>
+
+                <!-- Schedule Button -->
+
+                <TextView
+                    android:id="@+id/tvViewSchedule"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="14dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="14dp"
+                    android:paddingBottom="10dp"
+                    android:text="◷  Schedule"
+                    android:textColor="#087F5B"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- ================= DELIVERY STATISTICS ================= -->
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
+
+
+                <!-- ========== TOTAL DELIVERIES ========== -->
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="135dp"
+                    android:layout_height="125dp"
+                    app:cardBackgroundColor="#EAF8F3"
+                    app:cardCornerRadius="18dp"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <TextView
+                            android:layout_width="42dp"
+                            android:layout_height="42dp"
+                            android:gravity="center"
+                            android:text="🚚"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/tvTotalDeliveries"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:text="18"
+                            android:textColor="#087F5B"
+                            android:textSize="22sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Total Deliveries"
+                            android:textColor="#263238"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+                <!-- ========== COMPLETED ========== -->
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="135dp"
+                    android:layout_height="125dp"
+                    android:layout_marginStart="10dp"
+                    app:cardBackgroundColor="#EEF5FF"
+                    app:cardCornerRadius="18dp"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <TextView
+                            android:layout_width="42dp"
+                            android:layout_height="42dp"
+                            android:gravity="center"
+                            android:text="✓"
+                            android:textColor="#2563EB"
+                            android:textSize="23sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvCompleted"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:text="12"
+                            android:textColor="#2563EB"
+                            android:textSize="22sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Completed"
+                            android:textColor="#263238"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+                <!-- ========== IN PROGRESS ========== -->
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="135dp"
+                    android:layout_height="125dp"
+                    android:layout_marginStart="10dp"
+                    app:cardBackgroundColor="#FFF7E8"
+                    app:cardCornerRadius="18dp"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <TextView
+                            android:layout_width="42dp"
+                            android:layout_height="42dp"
+                            android:gravity="center"
+                            android:text="◷"
+                            android:textColor="#F4B942"
+                            android:textSize="23sp" />
+
+                        <TextView
+                            android:id="@+id/tvInProgress"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:text="4"
+                            android:textColor="#D99800"
+                            android:textSize="22sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="In Progress"
+                            android:textColor="#263238"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+                <!-- ========== CANCELLED ========== -->
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="135dp"
+                    android:layout_height="125dp"
+                    android:layout_marginStart="10dp"
+                    app:cardBackgroundColor="#FFF0F0"
+                    app:cardCornerRadius="18dp"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <TextView
+                            android:layout_width="42dp"
+                            android:layout_height="42dp"
+                            android:gravity="center"
+                            android:text="×"
+                            android:textColor="#E05252"
+                            android:textSize="23sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvCancelled"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:text="2"
+                            android:textColor="#E05252"
+                            android:textSize="22sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Cancelled"
+                            android:textColor="#263238"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
+        <!-- ================= DELIVERY FILTER TABS ================= -->
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="16dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="2dp">
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="8dp">
+
+                    <!-- ALL -->
+
+                    <TextView
+                        android:id="@+id/tabAll"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="18dp"
+                        android:paddingTop="10dp"
+                        android:paddingEnd="18dp"
+                        android:paddingBottom="10dp"
+                        android:text="☷  All"
+                        android:textColor="#087F5B"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+
+                    <!-- IN PROGRESS -->
+
+                    <TextView
+                        android:id="@+id/tabProgress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="18dp"
+                        android:paddingTop="10dp"
+                        android:paddingEnd="18dp"
+                        android:paddingBottom="10dp"
+                        android:text="◷  In Progress"
+                        android:textColor="#607D78"
+                        android:textSize="13sp" />
+
+
+                    <!-- COMPLETED -->
+
+                    <TextView
+                        android:id="@+id/tabCompleted"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="18dp"
+                        android:paddingTop="10dp"
+                        android:paddingEnd="18dp"
+                        android:paddingBottom="10dp"
+                        android:text="✓  Completed"
+                        android:textColor="#607D78"
+                        android:textSize="13sp" />
+
+
+                    <!-- CANCELLED -->
+
+                    <TextView
+                        android:id="@+id/tabCancelled"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="18dp"
+                        android:paddingTop="10dp"
+                        android:paddingEnd="18dp"
+                        android:paddingBottom="10dp"
+                        android:text="×  Cancelled"
+                        android:textColor="#607D78"
+                        android:textSize="13sp" />
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+        </androidx.cardview.widget.CardView>
+
+
+        <!-- ================= TODAY'S DELIVERIES TITLE ================= -->
+
+        <TextView
+            android:id="@+id/tvTodaysDeliveries"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Today's Deliveries"
+            android:textColor="#12372A"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <!-- ================= DELIVERY CARD 1 ================= -->
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardDelivery1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="16dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="3dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="15dp">
+
+                <!-- TOP SECTION -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <!-- PRODUCT ICON -->
+
+                    <TextView
+                        android:id="@+id/ivProduct1"
+                        android:layout_width="58dp"
+                        android:layout_height="58dp"
+                        android:gravity="center"
+                        android:text="🥛"
+                        android:textSize="28sp" />
+
+
+                    <!-- DELIVERY INFORMATION -->
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <!-- Product -->
+
+                        <TextView
+                            android:id="@+id/tvProduct1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Milk - 1 Litre"
+                            android:textColor="#12372A"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <!-- Customer -->
+
+                        <TextView
+                            android:id="@+id/tvCustomer1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="👤 Rahul Sharma"
+                            android:textColor="#455A64"
+                            android:textSize="13sp" />
+
+                        <!-- Address -->
+
+                        <TextView
+                            android:id="@+id/tvAddress1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="📍 Shivaji Nagar, Pune"
+                            android:textColor="#607D78"
+                            android:textSize="12sp" />
+
+                        <!-- Time -->
+
+                        <TextView
+                            android:id="@+id/tvTime1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="◷ 08:00 AM - 09:00 AM"
+                            android:textColor="#607D78"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+
+                    <!-- STATUS -->
+
+                    <TextView
+                        android:id="@+id/tvStatus1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="10dp"
+                        android:paddingTop="6dp"
+                        android:paddingEnd="10dp"
+                        android:paddingBottom="6dp"
+                        android:text="In Progress"
+                        android:textColor="#087F5B"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+
+                <!-- DIVIDER -->
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="#E8EFEC" />
+
+
+                <!-- BOTTOM SECTION -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <!-- ORDER ID -->
+
+                    <TextView
+                        android:id="@+id/tvOrderId1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Order ID: #DS12345"
+                        android:textColor="#087F5B"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+
+                    <!-- CALL BUTTON -->
+
+                    <TextView
+                        android:id="@+id/btnCall1"
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:gravity="center"
+                        android:text="☎"
+                        android:textColor="#087F5B"
+                        android:textSize="20sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- ================= DELIVERY CARD 2 ================= -->
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardDelivery2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="16dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="3dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="15dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/ivProduct2"
+                        android:layout_width="58dp"
+                        android:layout_height="58dp"
+                        android:gravity="center"
+                        android:text="📰"
+                        android:textSize="28sp" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvProduct2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Newspaper"
+                            android:textColor="#12372A"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvCustomer2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="👤 Sneha Patil"
+                            android:textColor="#455A64"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/tvAddress2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="📍 Kothrud, Pune"
+                            android:textColor="#607D78"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/tvTime2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="◷ 08:30 AM - 09:30 AM"
+                            android:textColor="#607D78"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvStatus2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="10dp"
+                        android:paddingTop="6dp"
+                        android:paddingEnd="10dp"
+                        android:paddingBottom="6dp"
+                        android:text="In Progress"
+                        android:textColor="#087F5B"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="#E8EFEC" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/tvOrderId2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Order ID: #DS12346"
+                        android:textColor="#087F5B"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/btnCall2"
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:gravity="center"
+                        android:text="☎"
+                        android:textColor="#087F5B"
+                        android:textSize="20sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+        <!-- ================= DELIVERY CARD 3 ================= -->
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardDelivery3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="16dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="3dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="15dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/ivProduct3"
+                        android:layout_width="58dp"
+                        android:layout_height="58dp"
+                        android:gravity="center"
+                        android:text="🍱"
+                        android:textSize="28sp" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvProduct3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tiffin - Standard"
+                            android:textColor="#12372A"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvCustomer3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="👤 Vijay Jadhav"
+                            android:textColor="#455A64"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/tvAddress3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="📍 Karve Nagar, Pune"
+                            android:textColor="#607D78"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/tvTime3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="◷ 09:00 AM - 10:00 AM"
+                            android:textColor="#607D78"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvStatus3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="10dp"
+                        android:paddingTop="6dp"
+                        android:paddingEnd="10dp"
+                        android:paddingBottom="6dp"
+                        android:text="Completed"
+                        android:textColor="#2EAD63"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="#E8EFEC" />
+
+                <TextView
+                    android:id="@+id/tvOrderId3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Order ID: #DS12347"
+                    android:textColor="#087F5B"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+        <!-- ================= DELIVERY CARD 4 ================= -->
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardDelivery4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="16dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="3dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="15dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/ivProduct4"
+                        android:layout_width="58dp"
+                        android:layout_height="58dp"
+                        android:gravity="center"
+                        android:text="💧"
+                        android:textSize="28sp" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvProduct4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Water - 20 Litre"
+                            android:textColor="#12372A"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvCustomer4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="👤 Aarti Kulkarni"
+                            android:textColor="#455A64"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/tvAddress4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="📍 Warje, Pune"
+                            android:textColor="#607D78"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/tvTime4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="◷ 09:30 AM - 10:30 AM"
+                            android:textColor="#607D78"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvStatus4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="10dp"
+                        android:paddingTop="6dp"
+                        android:paddingEnd="10dp"
+                        android:paddingBottom="6dp"
+                        android:text="Cancelled"
+                        android:textColor="#E05252"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="#E8EFEC" />
+
+                <TextView
+                    android:id="@+id/tvOrderId4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Order ID: #DS12348"
+                    android:textColor="#087F5B"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- ================= MOTIVATION / REMAINING DELIVERIES CARD ================= -->
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardDeliveryProgress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="#EAF8F3"
+            app:cardCornerRadius="22dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <!-- DELIVERY ICON -->
+
+                <TextView
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:gravity="center"
+                    android:text="🛵"
+                    android:textSize="34sp" />
+
+
+                <!-- INFORMATION -->
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvMotivationTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Keep going! 🌿"
+                        android:textColor="#12372A"
+                        android:textSize="17sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvRemainingDeliveries"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="You have 4 deliveries remaining today."
+                        android:textColor="#45645C"
+                        android:textSize="12sp" />
+
+                    <!-- PROGRESS -->
+
+                    <ProgressBar
+                        android:id="@+id/deliveryProgressBar"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="7dp"
+                        android:layout_marginTop="10dp"
+                        android:max="18"
+                        android:progress="14"
+                        android:progressTint="#20C997"
+                        android:backgroundTint="#CDE8DF" />
+
+                </LinearLayout>
+
+
+                <!-- INSIGHTS BUTTON -->
+
+                <TextView
+                    android:id="@+id/btnViewInsights"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:paddingStart="12dp"
+                    android:paddingTop="9dp"
+                    android:paddingEnd="12dp"
+                    android:paddingBottom="9dp"
+                    android:text="Insights"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
+

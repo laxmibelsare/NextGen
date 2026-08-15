@@ -1,14 +1,990 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CustomerFragments.PaymentsCustomerFragment">
+    android:background="#F8F9F5"
+    android:fillViewport="true"
+    android:scrollbars="none">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="24dp">
 
-</FrameLayout>
+        <!-- ================= HEADER ================= -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#087F5B"
+            android:orientation="vertical"
+            android:paddingStart="20dp"
+            android:paddingTop="26dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="30dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Payments"
+                        android:textColor="#FFFFFF"
+                        android:textSize="27sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Manage your subscriptions &amp; payments"
+                        android:textColor="#D8F3EA"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/btnPaymentNotifications"
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    android:gravity="center"
+                    android:text="🔔"
+                    android:textSize="20sp"
+                    android:contentDescription="Notifications" />
+
+                <TextView
+                    android:id="@+id/btnPaymentSettings"
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    android:layout_marginStart="5dp"
+                    android:gravity="center"
+                    android:text="⚙"
+                    android:textColor="#FFFFFF"
+                    android:textSize="21sp"
+                    android:contentDescription="Settings" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <!-- ================= TOTAL PAID CARD ================= -->
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardTotalPaid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="-18dp"
+            android:layout_marginEnd="16dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardCornerRadius="22dp"
+            app:cardElevation="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="18dp">
+
+                <!-- Wallet Icon -->
+
+                <TextView
+                    android:layout_width="68dp"
+                    android:layout_height="68dp"
+                    android:background="#E8F8F2"
+                    android:gravity="center"
+                    android:text="💳"
+                    android:textSize="32sp" />
+
+                <!-- Amount -->
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Total Paid"
+                        android:textColor="#263238"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tvTotalPaid"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="₹4,850"
+                        android:textColor="#087F5B"
+                        android:textSize="31sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvPaymentMonth"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="This Month"
+                        android:textColor="#607D78"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <!-- Insights -->
+
+                <TextView
+                    android:id="@+id/btnPaymentInsights"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#E8F8F2"
+                    android:paddingStart="12dp"
+                    android:paddingTop="11dp"
+                    android:paddingEnd="12dp"
+                    android:paddingBottom="11dp"
+                    android:text="▥  Insights"
+                    android:textColor="#087F5B"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- ================= PAYMENT STATISTICS ================= -->
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
+
+                <!-- PAID -->
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="125dp"
+                    android:layout_height="120dp"
+                    app:cardBackgroundColor="#EAF8F3"
+                    app:cardCornerRadius="18dp"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_width="42dp"
+                            android:layout_height="42dp"
+                            android:gravity="center"
+                            android:text="✓"
+                            android:textColor="#087F5B"
+                            android:textSize="25sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvPaidCount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="12"
+                            android:textColor="#087F5B"
+                            android:textSize="21sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Paid"
+                            android:textColor="#263238"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+                <!-- PENDING -->
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="125dp"
+                    android:layout_height="120dp"
+                    android:layout_marginStart="10dp"
+                    app:cardBackgroundColor="#EEF5FF"
+                    app:cardCornerRadius="18dp"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_width="42dp"
+                            android:layout_height="42dp"
+                            android:gravity="center"
+                            android:text="◷"
+                            android:textColor="#2563EB"
+                            android:textSize="24sp" />
+
+                        <TextView
+                            android:id="@+id/tvPendingCount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2"
+                            android:textColor="#2563EB"
+                            android:textSize="21sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Pending"
+                            android:textColor="#263238"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+                <!-- FAILED -->
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="125dp"
+                    android:layout_height="120dp"
+                    android:layout_marginStart="10dp"
+                    app:cardBackgroundColor="#FFF0F0"
+                    app:cardCornerRadius="18dp"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_width="42dp"
+                            android:layout_height="42dp"
+                            android:gravity="center"
+                            android:text="!"
+                            android:textColor="#E05252"
+                            android:textSize="25sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvFailedCount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1"
+                            android:textColor="#E05252"
+                            android:textSize="21sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Failed"
+                            android:textColor="#263238"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+                <!-- TOTAL -->
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="125dp"
+                    android:layout_height="120dp"
+                    android:layout_marginStart="10dp"
+                    app:cardBackgroundColor="#F3EEFF"
+                    app:cardCornerRadius="18dp"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_width="42dp"
+                            android:layout_height="42dp"
+                            android:gravity="center"
+                            android:text="▦"
+                            android:textColor="#7048C8"
+                            android:textSize="23sp" />
+
+                        <TextView
+                            android:id="@+id/tvTotalTransactions"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="18"
+                            android:textColor="#7048C8"
+                            android:textSize="21sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Transactions"
+                            android:textColor="#263238"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
+        <!-- ================= PAYMENT METHODS ================= -->
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardPaymentMethods"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="16dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- TITLE -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingStart="18dp"
+                    android:paddingTop="17dp"
+                    android:paddingEnd="18dp"
+                    android:paddingBottom="12dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Payment Methods"
+                        android:textColor="#12372A"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/btnAddPaymentMethod"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="+  Add New"
+                        android:textColor="#087F5B"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+
+                <!-- VISA -->
+
+                <LinearLayout
+                    android:id="@+id/paymentCardVisa"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="18dp"
+                    android:paddingTop="12dp"
+                    android:paddingEnd="18dp"
+                    android:paddingBottom="12dp">
+
+                    <TextView
+                        android:layout_width="62dp"
+                        android:layout_height="48dp"
+                        android:background="#F8F9F5"
+                        android:gravity="center"
+                        android:text="VISA"
+                        android:textColor="#1749A0"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvCardNumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="•••• 4582"
+                            android:textColor="#12372A"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="Visa Credit Card"
+                            android:textColor="#607D78"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="#E8F8F2"
+                        android:paddingStart="10dp"
+                        android:paddingTop="6dp"
+                        android:paddingEnd="10dp"
+                        android:paddingBottom="6dp"
+                        android:text="Primary"
+                        android:textColor="#087F5B"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/btnVisaArrow"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:gravity="center"
+                        android:text="›"
+                        android:textColor="#607D78"
+                        android:textSize="25sp" />
+
+                </LinearLayout>
+
+
+                <!-- DIVIDER -->
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginEnd="18dp"
+                    android:background="#E8EFEC" />
+
+
+                <!-- UPI -->
+
+                <LinearLayout
+                    android:id="@+id/paymentUpi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="18dp"
+                    android:paddingTop="12dp"
+                    android:paddingEnd="18dp"
+                    android:paddingBottom="15dp">
+
+                    <TextView
+                        android:layout_width="62dp"
+                        android:layout_height="48dp"
+                        android:background="#F8F9F5"
+                        android:gravity="center"
+                        android:text="UPI"
+                        android:textColor="#087F5B"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvUpiId"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="purva@upi"
+                            android:textColor="#12372A"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="UPI ID"
+                            android:textColor="#607D78"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/btnUpiArrow"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:gravity="center"
+                        android:text="›"
+                        android:textColor="#607D78"
+                        android:textSize="25sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- ================= RECENT TRANSACTIONS ================= -->
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardRecentTransactions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="16dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- TITLE -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingStart="18dp"
+                    android:paddingTop="17dp"
+                    android:paddingEnd="18dp"
+                    android:paddingBottom="12dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Recent Transactions"
+                        android:textColor="#12372A"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/btnViewAllTransactions"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="View All  ›"
+                        android:textColor="#087F5B"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+
+                <!-- TRANSACTION 1 -->
+
+                <LinearLayout
+                    android:id="@+id/transactionMilk"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="18dp"
+                    android:paddingTop="12dp"
+                    android:paddingEnd="18dp"
+                    android:paddingBottom="12dp">
+
+                    <TextView
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
+                        android:background="#E8F8F2"
+                        android:gravity="center"
+                        android:text="🥛"
+                        android:textSize="25sp" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvMilkTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Milk Subscription"
+                            android:textColor="#12372A"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="15 Aug 2026 • #SUB12345"
+                            android:textColor="#607D78"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/tvMilkStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="●  Paid"
+                            android:textColor="#2EAD63"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvMilkAmount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="₹450"
+                            android:textColor="#12372A"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:background="#E8F8F2"
+                            android:paddingStart="9dp"
+                            android:paddingTop="5dp"
+                            android:paddingEnd="9dp"
+                            android:paddingBottom="5dp"
+                            android:text="✓ Paid"
+                            android:textColor="#087F5B"
+                            android:textSize="10sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <!-- DIVIDER -->
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginEnd="18dp"
+                    android:background="#E8EFEC" />
+
+
+                <!-- TRANSACTION 2 -->
+
+                <LinearLayout
+                    android:id="@+id/transactionNewspaper"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="18dp"
+                    android:paddingTop="12dp"
+                    android:paddingEnd="18dp"
+                    android:paddingBottom="12dp">
+
+                    <TextView
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
+                        android:background="#EEF5FF"
+                        android:gravity="center"
+                        android:text="📰"
+                        android:textSize="25sp" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Newspaper Subscription"
+                            android:textColor="#12372A"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="14 Aug 2026 • #SUB12344"
+                            android:textColor="#607D78"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/tvNewspaperStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="●  Pending"
+                            android:textColor="#D99800"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="₹180"
+                            android:textColor="#12372A"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/btnPayPending"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:background="#FFF7E8"
+                            android:paddingStart="9dp"
+                            android:paddingTop="5dp"
+                            android:paddingEnd="9dp"
+                            android:paddingBottom="5dp"
+                            android:text="◷ Pay Now"
+                            android:textColor="#D99800"
+                            android:textSize="10sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <!-- DIVIDER -->
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginEnd="18dp"
+                    android:background="#E8EFEC" />
+
+
+                <!-- TRANSACTION 3 -->
+
+                <LinearLayout
+                    android:id="@+id/transactionTiffin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="18dp"
+                    android:paddingTop="12dp"
+                    android:paddingEnd="18dp"
+                    android:paddingBottom="15dp">
+
+                    <TextView
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
+                        android:background="#FFF0F0"
+                        android:gravity="center"
+                        android:text="🍱"
+                        android:textSize="25sp" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tiffin Subscription"
+                            android:textColor="#12372A"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="13 Aug 2026 • #SUB12343"
+                            android:textColor="#607D78"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="●  Failed"
+                            android:textColor="#E05252"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="₹120"
+                            android:textColor="#12372A"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/btnRetryPayment"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:background="#FFF0F0"
+                            android:paddingStart="9dp"
+                            android:paddingTop="5dp"
+                            android:paddingEnd="9dp"
+                            android:paddingBottom="5dp"
+                            android:text="↻ Retry"
+                            android:textColor="#E05252"
+                            android:textSize="10sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+        <!-- ================= AUTO PAY CARD ================= -->
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardAutoPay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="10dp"
+            app:cardBackgroundColor="#EAF8F3"
+            app:cardCornerRadius="22dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:background="#D5F1E6"
+                    android:gravity="center"
+                    android:text="🛡️"
+                    android:textSize="32sp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="13dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Never miss a payment!"
+                        android:textColor="#12372A"
+                        android:textSize="17sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Enable automatic payments for hassle-free subscriptions."
+                        android:textColor="#45645C"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/btnEnableAutoPay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#087F5B"
+                    android:paddingStart="13dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="13dp"
+                    android:paddingBottom="10dp"
+                    android:text="Enable Auto Pay  ›"
+                    android:textColor="#FFFFFF"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>
