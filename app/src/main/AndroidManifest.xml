@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NextGen">
         <activity
+            android:name=".RegistrationCustomerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginCustomerActivity"
+            android:exported="false" />
+        <activity
             android:name=".home_customerActivity"
             android:exported="false" />
         <activity
@@ -21,7 +27,7 @@
             android:name=".Selection_FormActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".LoginVendorActivity"
             android:exported="false" />
         <activity
             android:name=".SplashActivity"

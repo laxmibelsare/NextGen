@@ -6,14 +6,10 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class Selection_FormActivity extends AppCompatActivity {
 
@@ -33,7 +29,7 @@ public class Selection_FormActivity extends AppCompatActivity {
         CustomerArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Selection_FormActivity.this, LoginActivity.class);
+                Intent i = new Intent(Selection_FormActivity.this, LoginCustomerActivity.class);
                 startActivity(i);
             }
         });
@@ -41,7 +37,7 @@ public class Selection_FormActivity extends AppCompatActivity {
         VendorArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Selection_FormActivity.this, LoginActivity.class);
+                Intent i = new Intent(Selection_FormActivity.this, LoginVendorActivity.class);
                 startActivity(i);
             }
         });

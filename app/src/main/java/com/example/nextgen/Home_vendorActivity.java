@@ -28,11 +28,9 @@ public class Home_vendorActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_vendor);
 
-        // Find views
         toolbar = findViewById(R.id.toolbar);
         bottomNavigation = findViewById(R.id.bottomNavigation);
 
-        // Set Toolbar
         setSupportActionBar(toolbar);
 
         if (savedInstanceState == null) {
@@ -41,11 +39,9 @@ public class Home_vendorActivity extends AppCompatActivity {
                     .replace(R.id.fragment_container, new DashboardFragment())
                     .commit();
 
-            // Select Home item by default
             bottomNavigation.setSelectedItemId(R.id.empty);
         }
 
-        // Bottom Menu Click
         bottomNavigation.setOnItemSelectedListener(item -> {
 
             Fragment fragment = null;
@@ -92,7 +88,6 @@ public class Home_vendorActivity extends AppCompatActivity {
         return true;
     }
 
-    // Top Menu Click
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
