@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -10,7 +9,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="90dp"
+        android:layout_marginBottom="20dp"
         android:fillViewport="true">
 
         <LinearLayout
@@ -19,7 +18,6 @@
             android:orientation="vertical"
             android:padding="18dp">
 
-            <!-- Header -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="65dp"
@@ -57,22 +55,21 @@
                 </LinearLayout>
 
                 <ImageView
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:layout_marginEnd="12dp"
                     android:src="@drawable/circle_notifications2_ic"
                     android:padding="5dp" />
 
                 <ImageView
-                    android:layout_width="42dp"
-                    android:layout_height="42dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:src="@drawable/ic_profile"
                     android:padding="5dp" />
 
             </LinearLayout>
 
 
-            <!-- Greeting -->
 
             <TextView
                 android:layout_width="wrap_content"
@@ -112,7 +109,7 @@
                     <ImageView
                         android:layout_width="27dp"
                         android:layout_height="27dp"
-                        android:src="@drawable/call"
+                        android:src="@drawable/search_ic"
                         android:padding="3dp" />
 
                     <TextView
@@ -223,7 +220,7 @@
                         android:text="🍔\nFood"
                         android:textColor="#173F35"
                         android:textSize="13sp"
-                        android:background="#DDF3EA" />
+                        android:background="@drawable/category_bg" />
 
                     <TextView
                         android:layout_width="82dp"
@@ -233,7 +230,7 @@
                         android:text="🛒\nGrocery"
                         android:textColor="#173F35"
                         android:textSize="13sp"
-                        android:background="#DDF3EA" />
+                        android:background="@drawable/category_bg" />
 
                     <TextView
                         android:layout_width="82dp"
@@ -243,7 +240,7 @@
                         android:text="🧹\nHome"
                         android:textColor="#173F35"
                         android:textSize="13sp"
-                        android:background="#DDF3EA" />
+                        android:background="@drawable/category_bg" />
 
                     <TextView
                         android:layout_width="82dp"
@@ -253,7 +250,7 @@
                         android:text="🔧\nRepairs"
                         android:textColor="#173F35"
                         android:textSize="13sp"
-                        android:background="#DDF3EA" />
+                        android:background="@drawable/category_bg" />
 
                     <TextView
                         android:layout_width="82dp"
@@ -262,7 +259,7 @@
                         android:text="📦\nDelivery"
                         android:textColor="#173F35"
                         android:textSize="13sp"
-                        android:background="#DDF3EA" />
+                        android:background="@drawable/category_bg" />
 
                 </LinearLayout>
 
@@ -425,7 +422,7 @@
                         android:textColor="@android:color/white"
                         android:textSize="23sp"
                         android:textStyle="bold"
-                        android:background="#DDF3EA" />
+                        android:background="@drawable/bg_button" />
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -458,29 +455,5 @@
         </LinearLayout>
 
     </ScrollView>
-
-
-    <!-- Bottom Navigation -->
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="85dp"
-        android:layout_gravity="bottom"
-        android:layout_margin="5dp"
-        app:cardBackgroundColor="@color/deep_emerald"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="12dp">
-
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottomNavigation"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@android:color/transparent"
-            app:itemIconTint="@color/white"
-            app:itemTextColor="@color/white"
-            app:labelVisibilityMode="labeled"
-            app:menu="@menu/bottom_menu_customer" />
-
-    </androidx.cardview.widget.CardView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
