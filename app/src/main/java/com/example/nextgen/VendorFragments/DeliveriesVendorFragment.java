@@ -1,4 +1,4 @@
-package com.example.nextgen.CustomerFragments;
+package com.example.nextgen.VendorFragments;
 
 import android.os.Bundle;
 
@@ -10,13 +10,14 @@ import android.view.ViewGroup;
 
 import com.example.nextgen.R;
 
-public class DeliveriesFragment extends Fragment
+
+public class DeliveriesVendorFragment extends Fragment
 {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
-        View view = inflater.inflate(R.layout.fragment_deliveries2, container, false);
+        View view = inflater.inflate(R.layout.fragment_deliveries_vendor, container, false);
 
         return view;
     }

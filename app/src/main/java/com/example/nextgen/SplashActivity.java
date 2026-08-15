@@ -156,13 +156,18 @@ public class SplashActivity extends AppCompatActivity {
                     startActivity(intent);
                     finish();
 
-                    lottieAnimationView.setRepeatCount(LottieDrawable.INFINITE);
-                    lottieAnimationView.playAnimation();
+                    brandLayout.postDelayed(() -> {
+
+                        lottieAnimationView.setVisibility(View.VISIBLE);
+                        lottieAnimationView.setRepeatCount(LottieDrawable.INFINITE);
+                        lottieAnimationView.playAnimation();
+
+                    }, 15000);
 
                 }, 1800);
 
-            }, 900);
+            }, 1000);
 
-        }, 3000);
+        }, 500);
     }
 }
