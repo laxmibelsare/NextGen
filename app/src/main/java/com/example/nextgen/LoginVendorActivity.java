@@ -42,7 +42,7 @@ public class LoginVendorActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                Intent i = new Intent(LoginVendorActivity.this, RegistrationVendorActivity.class);
+                Intent i = new Intent(LoginVendorActivity.this,RegistrationVendorActivity.class);
                 startActivity(i);
 
             }
@@ -53,7 +53,7 @@ public class LoginVendorActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                Intent i = new Intent(LoginVendorActivity.this, ForgetVendorActivity.class);
+                Intent i = new Intent(LoginVendorActivity.this,ForgetVendorActivity.class);
                 startActivity(i);
 
             }

@@ -53,7 +53,7 @@ public class LoginCustomerActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                Intent i = new Intent(LoginCustomerActivity.this, ForgetCustomerActivity.class);
+                Intent i = new Intent(LoginCustomerActivity.this,ForgetCustomerActivity.class);
                 startActivity(i);
 
             }
