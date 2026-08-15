@@ -17,7 +17,6 @@
         android:paddingTop="20dp"
         android:paddingBottom="30dp">
 
-
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -35,7 +34,6 @@
                 android:orientation="vertical"
                 android:padding="20dp">
 
-
                 <FrameLayout
                     android:layout_width="100dp"
                     android:layout_height="100dp">
@@ -45,7 +43,7 @@
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/app_logo"
+                        android:src="@drawable/customer_img"
                         app:shapeAppearanceOverlay="@style/CircleImage"/>
 
                     <ImageView
