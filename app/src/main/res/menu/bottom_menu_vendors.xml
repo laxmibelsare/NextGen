@@ -1,4 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/Customers"
+        android:icon="@drawable/customers"
+        android:title="Customres"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/deliveries"
+        android:icon="@drawable/ic_deliveries"
+        android:title="Deliveries"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/empty"
+        android:enabled="false"
+        android:icon="@android:color/transparent"
+        android:title=""
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/Payment"
+        android:icon="@drawable/ic_payments"
+        android:title="Payment"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/profile"
+        android:icon="@drawable/ic_profile"
+        android:title="Profile"
+        app:showAsAction="always"/>
 
 </menu>
