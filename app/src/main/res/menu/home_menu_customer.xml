@@ -24,19 +24,19 @@
         android:id="@+id/menuHomeSettings"
         android:title=" Settings"
         android:icon="@drawable/settings"
-        android:iconTint="@color/white"
+        android:iconTint="@color/black"
         app:showAsAction="always"/>
 
     <item
         android:id="@+id/menuHomeHelp_Support"
-        android:title="Help-Support"
+        android:title="❓ Help-Support"
         app:showAsAction="never"/>
 
     <item
         android:id="@+id/menuHomeLogout"
         android:title="Logout"
         android:icon="@drawable/logout"
-        android:iconTint="@android:color/white"
+        android:iconTint="@android:color/black"
         app:showAsAction="always"/>
 
 </menu>
