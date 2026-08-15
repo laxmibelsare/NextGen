@@ -11,6 +11,7 @@ import androidx.core.view.WindowInsetsCompat;
 public class ForgetCustomerActivity extends AppCompatActivity
 {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {

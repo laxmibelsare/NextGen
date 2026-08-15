@@ -13,6 +13,5 @@ public class RegistrationVendorActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_registration_vendor);
 
-            return;
     }
 }
